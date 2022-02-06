@@ -69,6 +69,10 @@ const ContactWrapper = styled.div`
         align-items: center;
     }
 
+    &.contact__section__icon__text{
+        display: none;
+    }
+
     @media all and (min-width: 490px){
         
         &.contact__main{
@@ -105,6 +109,21 @@ const ContactWrapper = styled.div`
             align-items: center;
         }
 
+    }
+
+    @media all and (min-width: 650px){
+        &.contact__section__icon{
+            /* width: 80%; */
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+        }
+
+        &.contact__section__icon__text{
+            display: block;
+        }
     }
 
 `

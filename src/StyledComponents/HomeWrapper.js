@@ -1,11 +1,12 @@
 import styled from 'styled-components'
+import { COLORS } from '../assets/theme'
 
 const HomeWrapper = styled.div`
 
     &.home{
         width: 100%;
         min-height: 100vh;
-        background-color: azure;
+        background-color: ${COLORS.background};
     }
 
     &.landing__main{

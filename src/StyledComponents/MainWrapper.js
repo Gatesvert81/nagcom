@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { COLORS } from '../assets/theme'
 
 const MainWrapper = styled.div`
 
@@ -8,7 +9,7 @@ height: 100%;
 
     &.gateway__band{
         width: 60px;
-        border: 5px solid black;
+        border: 5px solid ${COLORS.primary};
         border-radius: 10px;
     }
 
@@ -29,6 +30,15 @@ height: 100%;
         width: 100%;
         height: 100%; 
         position: relative;
+    }
+
+    @media all and (min-width: 800px){
+        &.gateway__card{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 30vh;
+        gap: 10px;
+    }
     }
 
 
