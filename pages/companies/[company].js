@@ -82,7 +82,7 @@ function company({ data }) {
                 </Text>
                 <UnorderedList lists={companyDetail?.contacts?.telephone} />
                 <Text className='medium__text' >
-                    Email <br />
+                    Email <br/>
                 </Text>
                 <UnorderedList lists={[companyDetail?.contacts?.email]} />
             </CompanySection>
@@ -91,7 +91,7 @@ function company({ data }) {
 }
 
 export async function getStaticPaths() {
-    const response = await fetch(`${router.basePath}/api/companies`)
+    const response = await fetch('http://localhost:3000/api/companies')
     const datas = await response.json()
 
     const paths = datas?.map((data) => ({
@@ -105,7 +105,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const response = await fetch(`${router.basePath}/api/getcompany?id=${params.company}`)
+    const response = await fetch(`http://localhost:3000/api/getcompany?id=${params.company}`)
     const data = await response.json()
     return {
         props: {
