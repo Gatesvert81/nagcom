@@ -8,8 +8,7 @@ import Contact from '../src/Components/Contact'
 import companyDetails from '../src/assets/companiesDetails'
 
 
-
-export default function Home({ data }) {
+export default function Home({ data }) {  
 
 
   return (
@@ -20,9 +19,9 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Landing />
-      <About />
-      <Companies data={data} />
-      <Gateway />
+      <About/>
+      <Companies data={companyDetails} />
+      <Gateway /> 
       <Contact />
 
 
@@ -30,14 +29,3 @@ export default function Home({ data }) {
   )
 }
 
-export async function getStaticProps() {
-  const data = companyDetails?.map((item) => ({
-    params: { company: item?.id.toString() }
-  }))
-
-  return {
-    props: {
-      data
-    }
-  }
-}

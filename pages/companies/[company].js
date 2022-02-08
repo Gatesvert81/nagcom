@@ -27,9 +27,15 @@ const CompanySection = ({ title, children }) => (
     </Main>
 )
 
-function company({ data }) {
+function company({ id }) {
+    
 
-    const companyDetail = data[0]
+    const selected = companyDetails.filter((item) => {
+        return item.id === parseInt(id)
+    })
+
+    const companyDetail = selected[0]
+
 
     const summarizedAbout = () => {
         const aboutArr = companyDetail?.about.split('.')
@@ -46,7 +52,7 @@ function company({ data }) {
     return (
         <CompaniesWrapper className='company__page' >
             <Head>
-                <title>{companyDetail?.name}</title>
+                <title>{companyDetail.name}</title>
                 <meta name={companyDetail?.name} content="Nagcom Groupof companies aspires to make life effortless for people no matter thier age of financial background." />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
@@ -105,12 +111,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const id = params.company
-    const data = companyDetails.filter((item) => {
-        return item.id === parseInt(id)
-    })
     return {
         props: {
-            data
+            id
         }
     }
 }
