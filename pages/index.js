@@ -5,10 +5,11 @@ import Gateway from '../src/Components/Gateway'
 import Companies from '../src/Components/Companies'
 import About from '../src/Components/About'
 import Contact from '../src/Components/Contact'
+import companyDetails from '../src/assets/companiesDetails'
 
 
 
-export default function Home({ data }) {  
+export default function Home({ data }) {
 
 
   return (
@@ -19,9 +20,9 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Landing />
-      <About/>
+      <About />
       <Companies data={data} />
-      <Gateway /> 
+      <Gateway />
       <Contact />
 
 
@@ -30,11 +31,13 @@ export default function Home({ data }) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch('http://localhost:3000/api/companies')
-  const data = await response.json()
+  const data = companyDetails?.map((item) => ({
+    params: { company: item?.id.toString() }
+  }))
+
   return {
-      props: {
-          data
-      }
+    props: {
+      data
+    }
   }
 }

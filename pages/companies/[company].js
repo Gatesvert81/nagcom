@@ -9,6 +9,7 @@ import Summary from '../../src/StyledComponents/Summary';
 import UnorderedList from '../../src/StyledComponents/UnorderedList';
 import Head from 'next/head';
 import MainWrapper from '../../src/StyledComponents/MainWrapper';
+import companyDetails from '../../src/assets/companiesDetails'
 
 const CompanySection = ({ title, children }) => (
     <Main className='company__page__section' >
@@ -91,10 +92,8 @@ function company({ data }) {
 }
 
 export async function getStaticPaths() {
-    const response = await fetch('http://localhost:3000/api/companies')
-    const datas = await response.json()
 
-    const paths = datas?.map((data) => ({
+    const paths = companyDetails?.map((data) => ({
         params: { company: data?.id.toString() }
     }))
 
@@ -105,8 +104,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const response = await fetch(`http://localhost:3000/api/getcompany?id=${params.company}`)
-    const data = await response.json()
+    const id = params.company
+    const data = companyDetails.filter((item) => {
+        return item.id === parseInt(id)
+    })
     return {
         props: {
             data
