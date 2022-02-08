@@ -7,10 +7,10 @@ width: 100%;
 
 `
 
-function AnchorLink({children, route}) {
+function AnchorLink({children, route, pass, target}) {
   return (
-    <Link href={route} >
-        <A>
+    <Link href={route} passHref={pass || false } >
+        <A target={ target ? "_blank" : null } >
             {children}
         </A>
     </Link>

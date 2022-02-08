@@ -67,9 +67,9 @@ const Wrapper = styled.button`
 `
 
 
-function Button({ children, style, click }) {
+function Button({ children, style, click, type }) {
     return (
-        <Wrapper className={style} onClick={click} >
+        <Wrapper className={style} onClick={click} type={type} >
             {children}
         </Wrapper>
     );

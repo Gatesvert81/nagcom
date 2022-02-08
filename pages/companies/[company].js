@@ -1,7 +1,6 @@
 import React from 'react';
 import CompaniesWrapper from '../../src/StyledComponents/CompaniesWrapper';
 import Main from '../../src/StyledComponents/Main';
-import bg from '../../public/bg.jpg'
 import HomeWrapper from '../../src/StyledComponents/HomeWrapper';
 import Text from '../../src/StyledComponents/Text';
 import Button from '../../src/StyledComponents/Button';
@@ -10,6 +9,12 @@ import UnorderedList from '../../src/StyledComponents/UnorderedList';
 import Head from 'next/head';
 import MainWrapper from '../../src/StyledComponents/MainWrapper';
 import companyDetails from '../../src/assets/companiesDetails'
+import ContactWrapper from '../../src/StyledComponents/ContactWrapper';
+import AnchorLink from '../../src/StyledComponents/AnchorLink';
+import Image from 'next/image';
+import whatsapp from '../../public/icons/whatsapp.png'
+import facebook from '../../public/icons/fb.png'
+
 
 const CompanySection = ({ title, children }) => (
     <Main className='company__page__section' >
@@ -28,7 +33,7 @@ const CompanySection = ({ title, children }) => (
 )
 
 function company({ id }) {
-    
+
 
     const selected = companyDetails.filter((item) => {
         return item.id === parseInt(id)
@@ -84,14 +89,63 @@ function company({ id }) {
                 {companyDetail?.investors}
             </CompanySection>
             <CompanySection title="Contact" >
-                <Text className='medium__text' >
-                    Telephone
-                </Text>
-                <UnorderedList lists={companyDetail?.contacts?.telephone} />
-                <Text className='medium__text' >
-                    Email <br/>
-                </Text>
-                <UnorderedList lists={[companyDetail?.contacts?.email]} />
+                <CompaniesWrapper className='company__contact__section' >
+                    <Text className='medium__text left' >
+                        Telephone
+                    </Text>
+                    <UnorderedList lists={companyDetail?.contacts?.telephone} />
+                </CompaniesWrapper>
+                <CompaniesWrapper className='company__contact__section'>
+                    <Text className='medium__text left' >
+                        Email <br />
+                    </Text>
+                    <UnorderedList lists={[companyDetail?.contacts?.email]} />
+                </CompaniesWrapper>
+                <CompaniesWrapper className='company__contact__section'>
+                    <Text className='medium__text left' >
+                        Social Media <br />
+                    </Text>
+                    <CompaniesWrapper className='company__contact__section__social'>
+                        <CompaniesWrapper>
+                            <AnchorLink route={companyDetail?.contacts.social.whatsapp} target={true} pass={true}>
+                                <ContactWrapper className='contact__section__icon'>
+                                    <ContactWrapper className='contact__section__icon__image' >
+                                        <Image
+                                            src={whatsapp}
+                                            // layout='' 
+                                            width={30}
+                                            height={30}
+                                        />
+                                    </ContactWrapper>
+                                    <ContactWrapper className='contact__section__icon__text'>
+                                        <Text className='small__text'>
+                                            054 893 1633
+                                        </Text>
+                                    </ContactWrapper>
+                                </ContactWrapper>
+                            </AnchorLink>
+                        </CompaniesWrapper>
+                        <CompaniesWrapper className='company__contact__section__social'>
+                            <AnchorLink route={companyDetail?.contacts.social.facebook} target={true} pass={true}>
+                                <ContactWrapper className='contact__section__icon'>
+                                    <ContactWrapper className='contact__section__icon__image' >
+                                        <Image
+                                            src={facebook}
+                                            // layout='' 
+                                            width={30}
+                                            height={30}
+                                        />
+                                    </ContactWrapper>
+                                    <ContactWrapper className='contact__section__icon__text'>
+                                        <Text className='small__text'>
+                                            {companyDetail?.name}
+                                        </Text>
+                                    </ContactWrapper>
+                                </ContactWrapper>
+                            </AnchorLink>
+                        </CompaniesWrapper>
+                    </CompaniesWrapper>
+                </CompaniesWrapper>
             </CompanySection>
         </CompaniesWrapper>
     );

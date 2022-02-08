@@ -48,6 +48,21 @@ const CompaniesWrapper = styled.div`
         height: 100%;
     }
 
+    &.company__contact__section{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    &.company__contact__section__social{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
     @media all and (min-width: 490px){
         &.companies__main{
             display: grid;

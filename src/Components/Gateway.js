@@ -23,38 +23,30 @@ function Gateway() {
                         <Image
                             src={bg}
                             layout='fill'
-                        // width={100}
-                        // height={100}
                         />
                     </MainWrapper>
                     <MainWrapper>
                         <Text className='medium__text'>
-                            Trading & Construction <br />
+                            Trading  <br />
                         </Text>
                         <Text className='small__text'>
-                            Anos coije voffnsu wncos8wwn 0whfwop
-                            w8w hiowdci we97cqp9ud pwd9c pwdch
-                            cweiocwe wdicweoc.
+                        We are specialized in exterior and interior decoration and many constructional works you can think of.
                         </Text>
                     </MainWrapper>
                 </MainWrapper>
                 <MainWrapper className='gateway__card'>
                     <MainWrapper>
                         <Text className='medium__text'>
-                            Trading & Construction <br />
+                            Construction <br />
                         </Text>
                         <Text className='small__text'>
-                            Anos coije voffnsu wncos8wwn 0whfwop
-                            w8w hiowdci we97cqp9ud pwd9c pwdch
-                            cweiocwe wdicweoc.
+                        We see to it that our clients are satisfied with us in our relation with them for the construction of their projects and household buildings. 
                         </Text>
                     </MainWrapper>
                     <MainWrapper className='gateway__card__image'>
                         <Image
                             src={bg}
                             layout='fill'
-                        // width={100}
-                        // height={100}
                         />
                     </MainWrapper>
                 </MainWrapper>

@@ -25,6 +25,11 @@ const Text = styled.span`
         color: white;
     }
 
+    &.left{
+        width: 100%;
+        text-align: left;
+    }
+
     &.textShadow{
         /* text-shadow: 3px 2px 3px ${COLORS.primary}; */
         text-shadow: 1px 1px 2px black, 0 0 10px blue, 0 0 5px darkblue;
