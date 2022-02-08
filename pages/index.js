@@ -1,13 +1,11 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import HomeWrapper from '../src/StyledComponents/HomeWrapper'
-import Navigation from '../src/Components/Navigation'
 import Landing from '../src/Components/Landing'
 import Gateway from '../src/Components/Gateway'
 import Companies from '../src/Components/Companies'
 import About from '../src/Components/About'
 import Contact from '../src/Components/Contact'
+
 
 
 export default function Home({ data }) {  
